@@ -8,7 +8,7 @@ environment: Development
 message: "Frontend Dev Environment"
 
 image:
-  repository: ghcr.io/K4ffeMan/frontend
+  repository: ghcr.io/k4ffeman/frontend
   tag: latest
 
 ingress:
