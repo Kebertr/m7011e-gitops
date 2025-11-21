@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: database-dev
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Kebertr/m7011e-gitops.git
+    targetRevision: main
+    path: k8s/database
+    helm:
+      valueFiles:
+        - ../environments/database/dev-values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: database-dev
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,18 @@
+# Frontend Staging Environment Configuration
+
+app:
+  name: frontend
+  replicas: 2
+
+domain: frontend-staging.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+environment: Staging
+message: "Frontend - Staging Environment"
+
+image:
+  repository: ghcr.io/K4ffeMan/frontend
+  tag: latest
+
+ingress:
+  certIssuer: letsencrypt-staging

@@ -1,0 +1,18 @@
+# Frontend Production Environment Configuration
+
+app:
+  name: frontend
+  replicas: 3
+
+domain: frontend.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+environment: Production
+message: "Frontend - Production Environment"
+
+image:
+  repository: ghcr.io/K4ffeMan/frontend
+  tag: latest
+
+ingress:
+  certIssuer: letsencrypt-prod

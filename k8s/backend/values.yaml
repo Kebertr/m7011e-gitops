@@ -1,0 +1,9 @@
+# values.yaml
+app:
+  name: backend
+  replicas: 1
+
+domain: backend.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+message: "Hello from Kubernetes with SSL!"

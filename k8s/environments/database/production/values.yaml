@@ -1,0 +1,17 @@
+# Database Production Environment Configuration
+
+app:
+  name: database
+  replicas: 1
+
+email: raskeb-1@student.ltu.se
+
+environment: Production
+message: "Database - Production Environment"
+
+image:
+  repository: postgres
+  tag: "16"
+
+storage:
+  size: 3Gi

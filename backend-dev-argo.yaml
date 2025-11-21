@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: backend-dev
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Kebertr/m7011e-gitops.git
+    targetRevision: main
+    path: k8s/backend
+    helm:
+      valueFiles:
+        - ../environments/backend/dev-values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: backend-dev
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

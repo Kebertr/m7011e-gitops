@@ -1,0 +1,18 @@
+# Backend Production Environment Configuration
+
+app:
+  name: backend
+  replicas: 3
+
+domain: backend.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+environment: Production
+message: "Backend - Production Environment"
+
+image:
+  repository: ghcr.io/K4ffeMan/backend
+  tag: latest
+
+ingress:
+  certIssuer: letsencrypt-prod

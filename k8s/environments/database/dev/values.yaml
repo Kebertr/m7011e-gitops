@@ -1,0 +1,17 @@
+# Database Development Environment Configuration
+
+app:
+  name: database
+  replicas: 1
+
+email: raskeb-1@student.ltu.se
+
+environment: Development
+message: "Database - Development Environment"
+
+image:
+  repository: postgres
+  tag: "16"
+
+storage:
+  size: 1Gi

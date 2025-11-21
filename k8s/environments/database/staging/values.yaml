@@ -1,0 +1,17 @@
+# Database Staging Environment Configuration
+
+app:
+  name: database
+  replicas: 1
+
+email: raskeb-1@student.ltu.se
+
+environment: Staging
+message: "Database - Staging Environment"
+
+image:
+  repository: postgres
+  tag: "16"
+
+storage:
+  size: 2Gi

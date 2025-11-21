@@ -1,0 +1,18 @@
+# Backend Development Environment Configuration
+
+app:
+  name: backend
+  replicas: 1
+
+domain: backend-dev.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+environment: Development
+message: "Backend - Development Environment"
+
+image:
+  repository: ghcr.io/K4ffeMan/backend
+  tag: latest
+
+ingress:
+  certIssuer: letsencrypt-staging

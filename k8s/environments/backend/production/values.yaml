@@ -1,0 +1,18 @@
+# Backend Staging Environment Configuration
+
+app:
+  name: backend
+  replicas: 2
+
+domain: backend-staging.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+environment: Staging
+message: "Backend - Staging Environment"
+
+image:
+  repository: ghcr.io/K4ffeMan/backend
+  tag: latest
+
+ingress:
+  certIssuer: letsencrypt-staging
