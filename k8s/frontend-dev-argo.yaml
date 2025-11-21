@@ -12,7 +12,7 @@ spec:
     path: k8s/frontend
     helm:
       valueFiles:
-        - ../environments/frontend/dev-values.yaml
+        - ../environments/frontend/dev/values.yaml
 
   destination:
     server: https://kubernetes.default.svc

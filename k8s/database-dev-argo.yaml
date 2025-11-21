@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: backend-dev
+  name: database-dev
   namespace: argocd
 spec:
   project: default
@@ -9,14 +9,14 @@ spec:
   source:
     repoURL: https://github.com/Kebertr/m7011e-gitops.git
     targetRevision: main
-    path: k8s/backend
+    path: k8s/database
     helm:
       valueFiles:
-        - ../environments/backend/dev-values.yaml
+        - ../environments/database/dev/values.yaml
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: backend-dev
+    namespace: database-dev
 
   syncPolicy:
     automated:

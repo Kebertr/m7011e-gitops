@@ -1,4 +1,3 @@
-# values.yaml
 app:
   name: frontend
   replicas: 1
@@ -7,3 +6,10 @@ domain: frontend.ltu-m7011e-7.se
 email: raskeb-1@student.ltu.se
 
 message: "Hello from Kubernetes with SSL!"
+
+image:
+  repository: ghcr.io/K4ffeMan/backend
+  tag: latest
+
+ingress:
+  certIssuer: letsencrypt-staging
