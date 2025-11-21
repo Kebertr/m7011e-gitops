@@ -11,7 +11,7 @@ environment: Development
 message: "Frontend - Development Environment"
 
 image:
-  repository: ghcr.io/K4ffeMan/frontend
+  repository: ghcr.io/K4ffeMan/m7011e/frontend
   tag: latest
 
 ingress:
