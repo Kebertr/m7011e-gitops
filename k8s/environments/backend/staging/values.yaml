@@ -11,7 +11,7 @@ environment: Production
 message: "Backend - Production Environment"
 
 image:
-  repository: ghcr.io/K4ffeMan/m7011e/tree/main/backend
+  repository: ghcr.io/K4ffeMan/m7011e/backend
   tag: latest
 
 ingress:
