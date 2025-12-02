@@ -35,7 +35,14 @@ spec:
                   cpu: {{ (.Values.DBCPU | quote) }}
                   memory: {{ (.Values.DBMemory | quote) }}
              {{ end }}
-         volumes:
-           - name: postgresdb
-             persistentVolumeClaim:
-               claimName: postgresql-pvc
+  volumeClaimTemplates:
+      - metadata:
+          name: postgresdb
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          storageClassName: {{ .Values.StorageClassName }}
+          resources:
+            requests:
+              storage: {{ .Values.DBStorage }}
+          

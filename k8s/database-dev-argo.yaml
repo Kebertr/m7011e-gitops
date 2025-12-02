@@ -12,7 +12,7 @@ spec:
     path: k8s/database
     helm:
       valueFiles:
-        - ../environments/database/dev/values.yaml
+        - environments/dev/values.yaml
 
   destination:
     server: https://kubernetes.default.svc
