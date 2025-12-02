@@ -12,7 +12,7 @@ message: "Frontend - Development Environment"
 
 image:
   repository: ghcr.io/k4ffeman/frontend
-  tag: latest
+  tag: v1
 
 ingress:
   certIssuer: letsencrypt-staging
