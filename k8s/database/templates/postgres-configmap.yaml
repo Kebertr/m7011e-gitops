@@ -7,5 +7,6 @@ metadata:
 data:
   POSTGRES_USER: {{ .Values.DBUser | quote }}
   POSTGRES_PASSWORD: {{ .Values.DBPassword | quote }}
+  POSTGRES_DB: {{ .Values.DBName | quote }}
   PGDATA: /var/lib/postgresql/data
   TZ: {{ .Values.Timezone | quote }}

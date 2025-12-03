@@ -3,6 +3,7 @@ Timezone: "Europe/Stockholm"
 
 DBUser: "postgres"
 DBPassword: "group7password"
+DBName: "mydatabase"
 DBImage: postgres:16
 DBResourceLimit: false
 DBCPU: "1000m"
