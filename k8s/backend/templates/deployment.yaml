@@ -18,14 +18,13 @@ spec:
         ports:
           - containerPort: 5000
         env:
-  
-        - name: DB_HOST
-          value: "postgres-service.database-dev.svc.cluster.local"
-        - name: DB_PORT
-          value: "5432"
-        - name: DB_USER
-          value: "postgres"
-        - name: DB_PASSWORD
-          value: "group7password"
-        - name: DB_NAME
-          value: "mydatabase"
+          - name: DB_HOST
+            value: "postgres-service.database-dev.svc.cluster.local"
+          - name: DB_PORT
+            value: "5432"
+          - name: DB_USER
+            value: "postgres"
+          - name: DB_PASSWORD
+            value: "group7password"
+          - name: DB_NAME
+            value: "mydatabase"
