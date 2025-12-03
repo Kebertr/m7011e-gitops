@@ -8,7 +8,7 @@ email: raskeb-1@student.ltu.se
 message: "Hello from Kubernetes with SSL!"
 
 image:
-  repository: ghcr.io/K4ffeMan/m7011e/tree/main/backend
+  repository: ghcr.io/k4ffeman/backend
   tag: latest
 
 ingress:
