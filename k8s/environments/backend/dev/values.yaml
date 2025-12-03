@@ -16,3 +16,4 @@ image:
 
 ingress:
   certIssuer: letsencrypt-staging
+  
