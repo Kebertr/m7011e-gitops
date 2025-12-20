@@ -1,0 +1,31 @@
+# Keycloak Configuration
+keycloak:
+  replicas: 1
+  image: quay.io/keycloak/keycloak:23.0
+
+  # Admin credentials (CHANGE THESE!)
+  adminUser: admin
+  adminPassword: adminpass
+
+  # Database configuration
+  database:
+    vendor: postgres
+    host: postgres-service.database-dev.svc.cluster.local  # Same namespace - simplified
+    port: 5432
+    database: mydatabase
+    username: postgres
+    password: group7password  # Must match PostgreSQL password
+
+  # Resource limits (optional)
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1Gi
+    requests:
+      cpu: 100m
+      memory: 256Mi
+
+# Ingress configuration
+domain: keycloak.ltu-m7011e-7.se  # Change to your domain
+email: raskeb-1@ltu.se              # Change to your email
+certIssuer: letsencrypt-staging       # Use letsencrypt-prod for production
