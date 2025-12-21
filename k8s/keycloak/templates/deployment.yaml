@@ -52,21 +52,28 @@ spec:
           value: "true"
         - name: KC_METRICS_ENABLED
           value: "true"
+        - name: KC_HTTP_MANAGEMENT_PORT
+          value: "9000"
+        - name: KC_HTTP_MANAGEMENT_ENABLED
+          value: "true"
         ports:
         - name: http
           containerPort: 8080
           protocol: TCP
+        - name: management
+          containerPort: 9000
+          protocol: TCP
         livenessProbe:
           httpGet:
             path: /q/health/live
-            port: http
+            port: management
           initialDelaySeconds: 120
           periodSeconds: 30
           timeoutSeconds: 5
         readinessProbe:
           httpGet:
             path: /q/health/ready
-            port: http
+            port: management
           initialDelaySeconds: 60
           periodSeconds: 10
           timeoutSeconds: 5
