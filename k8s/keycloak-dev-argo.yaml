@@ -16,7 +16,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: backend-dev
+    namespace: keycloak-dev
 
   syncPolicy:
     automated:

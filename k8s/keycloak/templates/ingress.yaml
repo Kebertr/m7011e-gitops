@@ -3,13 +3,13 @@ kind: Ingress
 metadata:
   name: keycloak
   annotations:
-    cert-manager.io/cluster-issuer: {{ .Values.ingress.certIssuer }}
+    cert-manager.io/cluster-issuer: {{ .Values.certIssuer }}
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   ingressClassName: traefik
   rules:
-  - host: {{ .Values.ingress.domain }}
+  - host: {{ .Values.domain }}
     http:
       paths:
       - path: /
@@ -21,5 +21,5 @@ spec:
               number: 8080
   tls:
   - hosts:
-    - {{ .Values.ingress.domain }}
+    - {{ .Values.domain }}
     secretName: keycloak-tls
