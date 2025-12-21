@@ -1,18 +1,18 @@
-# Backend Staging Environment Configuration
+# Backend Production Environment Configuration
 
 app:
   name: backend
-  replicas: 2
+  replicas: 3
 
-domain: backend-staging.ltu-m7011e-7.se
+domain: backend.ltu-m7011e-7.se
 email: raskeb-1@student.ltu.se
 
-environment: Staging
-message: "Backend - Staging Environment"
+environment: Production
+message: "Backend - Production Environment"
 
 image:
-  repository: ghcr.io/K4ffeMan/m7011e/tree/main/backend
+  repository: ghcr.io/K4ffeMan/m7011e/backend
   tag: latest
 
 ingress:
-  certIssuer: letsencrypt-staging
+  certIssuer: letsencrypt-prod
