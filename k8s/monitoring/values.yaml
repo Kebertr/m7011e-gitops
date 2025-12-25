@@ -18,23 +18,6 @@ images:
     tag: 3-management
     pullPolicy: IfNotPresent
 
-  # Example Services
-  # Default: Uses pre-built images from Docker Hub (johan/*)
-  # To use your own images:
-  #   1. Build: cd examples && ./build-images.sh
-  #   2. Push: cd examples && ./push-images.sh your-dockerhub-username
-  #   3. Update repository below to your-dockerhub-username/order-service
-  #   4. Deploy: helm upgrade monitoring -n monitoring .
-  orderService:
-    repository: johan/order-service
-    tag: latest
-    pullPolicy: Always
-
-  rabbitmqConsumer:
-    repository: johan/rabbitmq-consumer
-    tag: latest
-    pullPolicy: Always
-
 # Prometheus Configuration
 prometheus:
   enabled: true
