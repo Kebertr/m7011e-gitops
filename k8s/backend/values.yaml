@@ -11,5 +11,12 @@ image:
   repository: ghcr.io/k4ffeman/backend
   tag: latest
 
+
+database:
+  host: postgres-service.database-dev.svc.cluster.local  # Same namespace - simplified
+  port: 5432
+  name: mydatabase
+  username: postgres
+  password: group7password
 ingress:
   certIssuer: letsencrypt-staging
