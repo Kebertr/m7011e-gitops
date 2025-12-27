@@ -13,3 +13,5 @@ image:
 
 ingress:
   certIssuer: letsencrypt-staging
+
+redeployAt: "initial"

@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.app.name }}
+      annotations:
+        redeployAt: {{ .Values.redeployAt | quote }}
     spec:
       containers:
       - name: {{ .Values.app.name }}

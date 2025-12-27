@@ -20,3 +20,5 @@ database:
   password: group7password
 ingress:
   certIssuer: letsencrypt-staging
+
+redeployAt: "initial"
