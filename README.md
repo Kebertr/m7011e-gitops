@@ -15,6 +15,8 @@ kubectl get pods -n namespace
 kubectl get svc -n namespace
 ```
 
+TO update argocd for frontend and backend, change redeployAt
+
 # keycloak
 Will mainly be used to handle user login and register. It will hash the password for us and when logging in it sends back an jwt token which shows ownership.
 
@@ -56,3 +58,4 @@ If we in the future wants do deploy stages we could
 dev looking at dev branch
 Stage looking at stage branch
 production looking at main
+
