@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: keycloak
   annotations:
-    cert-manager.io/cluster-issuer: {{ .Values.certIssuer }}
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
@@ -23,16 +22,3 @@ spec:
   - hosts:
     - {{ .Values.domain }}
     secretName: keycloak-tls
-
----
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: keycloak-cert
-spec:
-  secretName: keycloak-tls
-  issuerRef:
-    name: {{ .Values.certIssuer }}
-    kind: ClusterIssuer
-  dnsNames:
-    - {{ .Values.domain }}
