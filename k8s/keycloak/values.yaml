@@ -26,6 +26,6 @@ keycloak:
       memory: 256Mi
 
 # Ingress configuration
-domain: keycloak.ltu-m7011e-7.se  # Change to your domain
+domain: keycloak-dev.ltu-m7011e-7.se  # Change to your domain
 email: raskeb-1@ltu.se              # Change to your email
 certIssuer: letsencrypt-prod       # Use letsencrypt-prod for production
