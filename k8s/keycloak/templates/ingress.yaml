@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: keycloak
   annotations:
+    cert-manager.io/cluster-issuer: {{ .Values.certIssuer }}
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
@@ -22,3 +23,29 @@ spec:
   - hosts:
     - {{ .Values.domain }}
     secretName: keycloak-tls
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keycloak
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: {{ .Values.domain }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: keycloak
+                port:
+                  number: 8080
+  tls:
+    - hosts:
+        - {{ .Values.domain }}
+      secretName: keycloak-tls
