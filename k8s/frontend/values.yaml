@@ -14,4 +14,4 @@ image:
 ingress:
   certIssuer: letsencrypt-staging
 
-redeployAt: "2026-01-05 13:04:00"
+redeployAt: "2026-01-05 13:11:00"
