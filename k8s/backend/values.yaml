@@ -2,6 +2,11 @@ app:
   name: backend
   replicas: 1
 
+worker:
+  name: rabbit-worker
+  replicas: 1
+  command: ["node", "dist/rabbitmq.js"]
+
 domain: backend.ltu-m7011e-7.se
 email: raskeb-1@student.ltu.se
 
