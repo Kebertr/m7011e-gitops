@@ -21,4 +21,7 @@ database:
 ingress:
   certIssuer: letsencrypt-staging
 
+amqp:
+  url: amqp://admin:adminpass@rabbitmq-service-api.rabbitmq-dev.svc.cluster.local:5672
+
 redeployAt: "2026-01-07 20:53:00"
