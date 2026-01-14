@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: load-testing
+  namespace: backend-dev
+data:
+  load-testing.py: |
+    import os
+    import random
+    import time
+    import requests
+    import string
+    url = os.getenv('ORDER_SERVICE_URL', 'http://localhost:5000')
+    headers = {"X-Test-Mode": "true"}
+    youtube_link = string.ascii_letters + string.digits
+    videos = []
+    def random_youtube_id():
+        link = "".join(random.choice(youtube_link) for _ in range(11))
+        return f"https://www.youtube.com/watch?v={link}"
+    def generate_http_traffic():
+        roomId = None
+        while True:
+            print(url)
+            try:
+                if roomId is None:
+                    #Create room
+                    response = requests.post(f"{url}/api/rooms/", headers=headers, verify=False, timeout=4)
+                    if response.status_code == 201 or response.status_code == 200:
+                        
+                        roomId = response.json().get("roomId")
+                        print("room created")
+                else:
+                    
+                    #get room
+                    requests.get(f"{url}/api/rooms/{roomId}", verify=False, timeout=4)
+                    print("successfully got room")
+                    #Add videos
+                    for _ in range(40):
+                        video_url = random_youtube_id()
+                        body = {"url": video_url}
+                        response = requests.post(f"{url}/api/videos/{roomId}", json=body, headers=headers, verify=False, timeout=4)
+                        print("video added")
+                    res = requests.get(f"{url}/api/videos/{roomId}", verify=False, timeout=4)
+                    videos = res.json()
+                    print("got the videos")
+                    video_ids = []
+                    for video in videos:
+                        video_ids.append(video["id"])
+                    #Start vote
+                    requests.post(f"{url}/api/vote/start/{roomId}", headers=headers, verify=False, timeout=4)
+                    print("vote started")
+                    #Vote
+                    for _ in range(60):
+                        requests.post(f"{url}/api/vote/{roomId}/{random.choice(video_ids)}", headers=headers, verify=False, timeout=4)
+                        print("voted")
+                    #End vote
+                    requests.post(f"{url}/api/vote/end/{roomId}", headers=headers, verify=False, timeout=4)
+                    print("vote ended")
+                    #requests.delete(f"{url}/api/rooms/{roomId}")
+                    roomId = None
+            except Exception as e:
+                print(repr(e))
+                time.sleep(1)
+                continue
+    if __name__ == "__main__":
+        generate_http_traffic()

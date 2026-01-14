@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: load-testing
+    namespace: backend-dev
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: load-testing
+  template:
+    metadata:
+      labels:
+        app: load-testing
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: load-testing
+          image: python:3.11-slim
+          command: ["bash", "-lc"]
+          args: 
+            - pip install -q requests && python /scripts/load-testing.py
+          env:
+            - name: ORDER_SERVICE_URL
+              value: "http://backend.backend-dev.svc"
+          volumeMounts:
+            - name: scripts
+              mountPath: /scripts
+      volumes:
+        - name: scripts
+          configMap:
+            name: load-testing
