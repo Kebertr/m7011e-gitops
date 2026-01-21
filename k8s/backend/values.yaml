@@ -4,7 +4,7 @@ app:
 
 worker:
   name: rabbit-worker
-  replicas: 1
+  replicas: 8
   command: ["node", "dist/rabbitmq.js"]
 
 domain: backend.ltu-m7011e-7.se
