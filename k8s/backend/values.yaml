@@ -1,6 +1,6 @@
 app:
   name: backend
-  replicas: 1
+  replicas: 3
 
 worker:
   name: rabbit-worker
