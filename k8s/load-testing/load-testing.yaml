@@ -13,7 +13,6 @@ data:
     url = os.getenv('ORDER_SERVICE_URL', 'http://localhost:5000')
     headers = {"X-Test-Mode": "true"}
     youtube_link = string.ascii_letters + string.digits
-    videos = []
     error_rate = 0.05
     def random_youtube_id():
         link = "".join(random.choice(youtube_link) for _ in range(11))
@@ -31,38 +30,37 @@ data:
                         print("room created")
                 else:
                     if random.random() < error_rate:
-                        requests.get(f"{url}/api/rooms/geiges35", verify=False, timeout=4)
-                        print("Got wrong room")
+                        response = requests.get(f"{url}/api/rooms/geiges35", verify=False, timeout=4)
+                        print("Got wrong room", response.status_code)
                     else:
                         #get room
                         requests.get(f"{url}/api/rooms/{roomId}", verify=False, timeout=4)
-                    print("successfully got room")
+                        print("successfully got room")
                     #Add videos
                     for _ in range(40):
                         if random.random() < error_rate:
                             video_url = "wrong"
                             body = {"url": video_url}
                             response = requests.post(f"{url}/api/videos/{roomId}", json=body, headers=headers, verify=False, timeout=4)
-                            print("Could not add a invalid video")
+                            print("Could not add a invalid video", response.status_code)
                         else:
                             video_url = random_youtube_id()
                             body = {"url": video_url}
                             response = requests.post(f"{url}/api/videos/{roomId}", json=body, headers=headers, verify=False, timeout=4)
-                            print("video added")
-                    if random.random() < error_rate:
-                        res = requests.get(f"{url}/api/videos/vvsevevsvd", verify=False, timeout=4)
-                        print("No video found")
-                    else:
-                        res = requests.get(f"{url}/api/videos/{roomId}", verify=False, timeout=4)
-                        if res.status_code == 200 or res.status_code == 201:
-                            videos = res.json()
-                            print("got the videos") 
+                            print("video added", response.status_code)
+                    videos = []
+                    res = requests.get(f"{url}/api/videos/{roomId}", verify=False, timeout=4)
+                    if res.status_code == 200 or res.status_code == 201:
+                        videos = res.json()
+                        print("got the videos")
+                    
                     video_ids = []
                     for video in videos:
                         video_ids.append(video["id"])
                     if random.random() < error_rate:
-                        requests.post(f"{url}/api/vote/start/fsgdgsdbs", headers=headers, verify=False, timeout=4)
-                        print("Could not start video")
+                        response = requests.post(f"{url}/api/vote/start/fsgdgsdbs", headers=headers, verify=False, timeout=4)
+                        print("Could not start video", response.status_code)
+                        continue
                     else:
                         #Start vote
                         requests.post(f"{url}/api/vote/start/{roomId}", headers=headers, verify=False, timeout=4)
@@ -70,14 +68,14 @@ data:
                     #Vote
                     for _ in range(60):
                         if random.random() < error_rate:
-                            requests.post(f"{url}/api/vote/{roomId}/23585235p", headers=headers, verify=False, timeout=4)
-                            print("Can not vote on a video that does not exist")
+                            response = requests.post(f"{url}/api/vote/304956034/23585235p", headers=headers, verify=False, timeout=4)
+                            print("Can not vote on a video that does not exist", response.status_code)
                         else:
                             requests.post(f"{url}/api/vote/{roomId}/{random.choice(video_ids)}", headers=headers, verify=False, timeout=4)
                             print("voted")
-                    if random.random() < error_rate:
-                        requests.post(f"{url}/api/vote/end/sgejgoeg4", headers=headers, verify=False, timeout=4)
-                        print("Failed to end vote")
+                    if random.random() < 0.9:
+                        response = requests.post(f"{url}/api/vote/end/sgejgoeg4", headers=headers, verify=False, timeout=4)
+                        print("Failed to end vote", response.status_code)
                     else:
                         #End vote
                         requests.post(f"{url}/api/vote/end/{roomId}", headers=headers, verify=False, timeout=4)
