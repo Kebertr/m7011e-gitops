@@ -2,7 +2,7 @@
 
 app:
   name: backend
-  replicas: 1
+  replicas: 3
 
 domain: backend-dev.ltu-m7011e-7.se
 email: raskeb-1@student.ltu.se
