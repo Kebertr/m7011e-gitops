@@ -73,7 +73,7 @@ data:
                         else:
                             requests.post(f"{url}/api/vote/{roomId}/{random.choice(video_ids)}", headers=headers, verify=False, timeout=4)
                             print("voted")
-                    if random.random() < 0.9:
+                    if random.random() < error_rate:
                         response = requests.post(f"{url}/api/vote/end/sgejgoeg4", headers=headers, verify=False, timeout=4)
                         print("Failed to end vote", response.status_code)
                     else:
