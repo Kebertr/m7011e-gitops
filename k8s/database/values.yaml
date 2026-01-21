@@ -5,7 +5,7 @@ DBUser: "postgres"
 DBPassword: "group7password"
 DBName: "mydatabase"
 DBImage: postgres:16
-DBResourceLimit: false
-DBCPU: "1000m"
+DBResourceLimit: true
+DBCPU: "2000m"
 DBMemory: "1000Mi"
-DBStorage: 10Gi
+DBStorage: 20Gi
