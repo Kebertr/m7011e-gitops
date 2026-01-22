@@ -7,5 +7,5 @@ DBName: "mydatabase"
 DBImage: postgres:16
 DBResourceLimit: true
 DBCPU: "2000m"
-DBMemory: "2000Mi"
+DBMemory: "1000Mi"
 DBStorage: 20Gi
