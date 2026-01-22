@@ -6,6 +6,6 @@ DBPassword: "group7password"
 DBName: "mydatabase"
 DBImage: postgres:16
 DBResourceLimit: true
-DBCPU: "4000m"
-DBMemory: "4000Mi"
+DBCPU: "2000m"
+DBMemory: "2000Mi"
 DBStorage: 20Gi
