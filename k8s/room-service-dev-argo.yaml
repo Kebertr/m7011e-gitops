@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: room-service-dev
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Kebertr/m7011e-gitops.git
+    targetRevision: main
+    path: k8s/room-service
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: room-service-dev
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
