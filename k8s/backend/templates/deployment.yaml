@@ -52,5 +52,5 @@ spec:
                 name: backend-secret
                 key: AMQP_URL
           - name: ROOM_SERVICE_URL
-            value: http://room-service.room-service-dev.svc.cluster.local/
+            value: http://room-service.room-service-dev.svc.cluster.local:5001
           
