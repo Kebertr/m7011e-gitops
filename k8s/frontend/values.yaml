@@ -12,6 +12,6 @@ image:
   tag: latest
 
 ingress:
-  certIssuer: letsencrypt-staging
+  certIssuer: letsencrypt-prod
 
-redeployAt: "2026-01-07 20:53:00"
+redeployAt: "2026-01-25 19:55:00"
