@@ -2,11 +2,6 @@ app:
   name: backend
   replicas: 3
 
-worker:
-  name: rabbit-worker
-  replicas: 8
-  command: ["node", "dist/rabbitmq.js"]
-
 domain: backend.ltu-m7011e-7.se
 email: raskeb-1@student.ltu.se
 
@@ -29,4 +24,4 @@ ingress:
 amqp:
   url: amqp://admin:adminpass@rabbitmq-service-api.rabbitmq-dev.svc.cluster.local:5672
 
-redeployAt: "2026-01-25 16:33:00"
+redeployAt: "2026-01-25 16:36:00"
