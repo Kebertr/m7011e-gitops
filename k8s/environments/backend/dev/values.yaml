@@ -22,5 +22,5 @@ database:
   password: group7password
   
 ingress:
-  certIssuer: letsencrypt-staging
+  certIssuer: letsencrypt-prod
   

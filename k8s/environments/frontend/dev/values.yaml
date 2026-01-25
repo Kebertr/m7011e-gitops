@@ -15,4 +15,4 @@ image:
   tag: latest
 
 ingress:
-  certIssuer: letsencrypt-staging
+  certIssuer: letsencrypt-prod
