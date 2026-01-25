@@ -29,4 +29,4 @@ ingress:
 amqp:
   url: amqp://admin:adminpass@rabbitmq-service-api.rabbitmq-dev.svc.cluster.local:5672
 
-redeployAt: "2026-01-21 20:06:00"
+redeployAt: "2026-01-25 16:33:00"

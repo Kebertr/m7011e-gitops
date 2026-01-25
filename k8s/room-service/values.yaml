@@ -21,4 +21,4 @@ database:
 ingress:
   certIssuer: letsencrypt-staging
 
-redeployAt: "2026-01-25 15:27:00"
+redeployAt: "2026-01-25 16:33:00"
