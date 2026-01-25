@@ -18,7 +18,5 @@ database:
   name: mydatabase
   username: postgres
   password: group7password
-ingress:
-  certIssuer: letsencrypt-staging
 
 redeployAt: "2026-01-25 17:46:00"
