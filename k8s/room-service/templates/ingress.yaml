@@ -19,7 +19,7 @@ spec:
       paths:
       - path: /
         pathType: Prefix
-        room-service:
+        backend:
           service:
             name: {{ .Values.app.name }}
             port:
