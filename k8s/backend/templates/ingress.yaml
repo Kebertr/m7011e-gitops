@@ -10,17 +10,17 @@ metadata:
 spec:
   ingressClassName: traefik
   tls:
-  - hosts:
-    - {{ .Values.domain }}
-    secretName: {{ .Values.app.name }}-tls
+    - hosts:
+      - {{ .Values.domain }}
+      secretName: {{ .Values.app.name }}-tls
   rules:
-  - host: {{ .Values.domain }}
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .Values.app.name }}
-            port:
-              number: 80
+    - host: {{ .Values.domain }}
+      http:
+        paths:
+        - path: /api
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Values.app.name }}
+              port:
+                number: 80
