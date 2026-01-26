@@ -1,0 +1,26 @@
+app:
+  name: video-service
+  replicas: 1
+
+domain: video-service.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+message: "Hello from Kubernetes with SSL!"
+
+image:
+  repository: ghcr.io/k4ffeman/video-service
+  tag: latest
+
+
+database:
+  host: postgres-service.database-dev.svc.cluster.local  # Same namespace - simplified
+  port: 5432
+  name: mydatabase
+  username: postgres
+  password: group7password
+
+amqp:
+  url: amqp://admin:adminpass@rabbitmq-service-api.video-rabbitmq.svc.cluster.local:5672
+
+
+redeployAt: "2026-01-26 12:13:00"
