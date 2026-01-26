@@ -5,3 +5,5 @@ Image: "rabbitmq:3-management"
 # ⚠️ IMPORTANT: Change these for production!
 RabbitMQUser: "admin"
 RabbitMQPassword: "adminpass"
+
+redeployAt: "2026-01-26 18:59:00"

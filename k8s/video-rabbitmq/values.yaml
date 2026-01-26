@@ -20,6 +20,6 @@ database:
   password: group7password
 
 amqp:
-  url: amqp://admin:adminpass@video-rabbitmq:5672
+  url: amqp://admin:adminpass@rabbitmq:5672
 
-redeployAt: "2026-01-26 17:58:00"
+redeployAt: "2026-01-26 18:59:00"
