@@ -19,4 +19,4 @@ database:
   username: postgres
   password: group7password
 
-redeployAt: "2026-01-26 12:13:00"
+redeployAt: "2026-01-26 22:08:00"
