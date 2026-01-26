@@ -22,4 +22,4 @@ database:
 amqp:
   url: amqp://admin:adminpass@video-rabbitmq:5672
 
-redeployAt: "2026-01-26 17:56:00"
+redeployAt: "2026-01-26 17:58:00"
