@@ -44,11 +44,11 @@ spec:
           - name: DB_NAME
             valueFrom:
               secretKeyRef:
-                name: video-service-secret
+                name: vote-service-secret
                 key: name
           - name: AMQP_URL
             valueFrom:
               secretKeyRef:
-                name: video-service-secret
+                name: vote-service-secret
                 key: rabbitmq
           
