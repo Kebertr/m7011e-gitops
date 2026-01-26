@@ -20,7 +20,7 @@ database:
   password: group7password
 
 amqp:
-  url: amqp://admin:adminpass@video-rabbitmq.video-service-dev.svc.cluster.local:5672
+  url: amqp://admin:adminpass@video-rabbitmq:5672
 
 
 redeployAt: "2026-01-26 17:39:00"
