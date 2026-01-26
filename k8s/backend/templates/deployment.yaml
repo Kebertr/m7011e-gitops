@@ -59,6 +59,6 @@ spec:
             value: http://start-vote-service.start-vote-service-dev.svc.cluster.local
           - name: END_VOTE_SERVICE_URL
             value: http://end-vote-service.end-vote-service-dev.svc.cluster.local
-          - name: _VOTE_SERVICE_URL
+          - name: VOTE_SERVICE_URL
             value: http://vote-service.vote-service-dev.svc.cluster.local
           
