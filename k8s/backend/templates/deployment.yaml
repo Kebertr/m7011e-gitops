@@ -55,4 +55,10 @@ spec:
             value: http://room-service.room-service-dev.svc.cluster.local
           - name: VIDEO_SERVICE_URL
             value: http://video-service.video-service-dev.svc.cluster.local
+          - name: START_VOTE_SERVICE_URL
+            value: http://start-vote-service.start-vote-service-dev.svc.cluster.local
+          - name: END_VOTE_SERVICE_URL
+            value: http://end-vote-service.end-vote-service-dev.svc.cluster.local
+          - name: _VOTE_SERVICE_URL
+            value: http://vote-service.vote-service-dev.svc.cluster.local
           
