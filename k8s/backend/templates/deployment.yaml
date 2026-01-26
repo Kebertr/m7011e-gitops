@@ -53,4 +53,6 @@ spec:
                 key: AMQP_URL
           - name: ROOM_SERVICE_URL
             value: http://room-service.room-service-dev.svc.cluster.local
+          - name: VIDEO_SERVICE_URL
+            value: http://video-service.video-service-dev.svc.cluster.local
           
