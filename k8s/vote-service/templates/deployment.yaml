@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+spec:
+  replicas: {{ .Values.app.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+      annotations:
+        redeployAt: {{ .Values.redeployAt | quote }}
+    spec:
+      containers:
+      - name: {{ .Values.app.name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5002
+        env:
+          - name: DB_HOST
+            valueFrom:
+              secretKeyRef:
+                name: vote-service-secret
+                key: host
+          - name: DB_PORT
+            valueFrom:
+              secretKeyRef:
+                name: vote-service-secret
+                key: port
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: vote-service-secret
+                key: username
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: vote-service-secret
+                key: password
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: video-service-secret
+                key: name
+          - name: AMQP_URL
+            valueFrom:
+              secretKeyRef:
+                name: video-service-secret
+                key: rabbitmq
+          
