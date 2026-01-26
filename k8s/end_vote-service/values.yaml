@@ -1,0 +1,22 @@
+app:
+  name: end-vote-service
+  replicas: 1
+
+domain: end-vote-service.ltu-m7011e-7.se
+email: raskeb-1@student.ltu.se
+
+message: "Hello from Kubernetes with SSL!"
+
+image:
+  repository: ghcr.io/k4ffeman/end-vote-service
+  tag: latest
+
+
+database:
+  host: postgres-service.database-dev.svc.cluster.local  # Same namespace - simplified
+  port: 5432
+  name: mydatabase
+  username: postgres
+  password: group7password
+
+redeployAt: "2026-01-26 22:08:00"
