@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: load-testing
-  namespace: backend-dev
+  namespace: load-testing
 data:
   load-testing.py: |
     import os

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
     name: load-testing
-    namespace: backend-dev
+    namespace: load-testing
 spec:
   replicas: 0
   selector:
