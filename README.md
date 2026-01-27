@@ -59,3 +59,8 @@ dev looking at dev branch
 Stage looking at stage branch
 production looking at main
 
+
+To run kubernetess deployment
+```
+https://frontend-dev.ltu-m7011e-7.se
+```
